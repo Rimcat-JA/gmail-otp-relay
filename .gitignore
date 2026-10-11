@@ -1,0 +1,4 @@
+dist/
+*.jks
+*.keystore
+key.properties
