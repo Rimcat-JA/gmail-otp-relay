@@ -257,7 +257,6 @@ function findCandidates_(text) {
   // 4〜8 桁の数字 (金額・日付・時刻・郵便番号・電話番号の一部は除く)
   const reNum = /(?<![0-9A-Za-z\-\/.,:#¥$€£〒©@])(\d{4,8})(?![0-9A-Za-z]|[\-\/.,:]\d|\s?(?:年|月|日|円|時|分|秒|件|名|個|%|歳|回|号|ドル|pt|ポイント|yen))/g;
   while ((m = reNum.exec(text))) {
-    if (text.charAt(m.index - 1) === '-' && /G$/.test(text.slice(0, m.index - 1))) continue;
     const yearLike = m[1].length === 4 && /^(19|20)\d\d$/.test(m[1]);
     push(m, m[1], yearLike ? 40 : 0);
   }
